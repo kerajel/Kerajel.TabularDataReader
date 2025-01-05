@@ -1,7 +1,7 @@
-﻿using Rustic.TabularDataReader.Enums;
-using Rustic.TabularDataReader.Handlers;
-using Rustic.TabularDataReader.Interfaces;
-using Rustic.TabularDataReader.Models;
+﻿using Kerajel.TabularDataReader.Enums;
+using Kerajel.TabularDataReader.Handlers;
+using Kerajel.TabularDataReader.Interfaces;
+using Kerajel.TabularDataReader.Models;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -9,7 +9,7 @@ namespace Rustic.TabularDataReader.Services;
 
 internal partial class SpreadsheetReader : ISpreadsheetReader
 {
-    const string DllName = "lib/rustic_tabular_data_reader.dll";
+    const string DllName = "lib/kerajel_tabular_data_reader.dll";
 
     [LibraryImport(DllName, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

@@ -1,4 +1,4 @@
-﻿namespace Rustic.TabularDataReader.Handlers;
+﻿namespace Kerajel.TabularDataReader.Handlers;
 
 internal class InteropResourceHandler<T> : IDisposable where T : struct
 {

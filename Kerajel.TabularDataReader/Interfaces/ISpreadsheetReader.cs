@@ -1,6 +1,6 @@
-﻿using Rustic.TabularDataReader.Models;
+﻿using Kerajel.TabularDataReader.Models;
 
-namespace Rustic.TabularDataReader.Interfaces;
+namespace Kerajel.TabularDataReader.Interfaces;
 
 public interface ISpreadsheetReader
 {

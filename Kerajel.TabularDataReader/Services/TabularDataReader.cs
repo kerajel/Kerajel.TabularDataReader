@@ -1,8 +1,8 @@
-﻿using Rustic.TabularDataReader.Enums;
-using Rustic.TabularDataReader.Interfaces;
-using Rustic.TabularDataReader.Models;
+﻿using Kerajel.TabularDataReader.Enums;
+using Kerajel.TabularDataReader.Interfaces;
+using Kerajel.TabularDataReader.Models;
 
-namespace Rustic.TabularDataReader.Services;
+namespace Kerajel.TabularDataReader.Services;
 
 public static class TabularDataReader
 {

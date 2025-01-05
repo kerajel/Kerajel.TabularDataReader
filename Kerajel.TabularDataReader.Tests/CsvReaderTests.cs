@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Rustic.TabularDataReader.Enums;
-using Rustic.TabularDataReader.Interfaces;
-using Rustic.TabularDataReader.Models;
+using Kerajel.TabularDataReader.Enums;
+using Kerajel.TabularDataReader.Interfaces;
+using Kerajel.TabularDataReader.Models;
 
-namespace Rustic.TabularDataReader.Tests;
+namespace Kerajel.TabularDataReader.Tests;
 
 public class CsvReaderTests
 {

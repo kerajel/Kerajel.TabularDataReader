@@ -1,8 +1,9 @@
-﻿using Rustic.TabularDataReader.Interfaces;
+﻿using Kerajel.TabularDataReader.Interfaces;
+using Kerajel.TabularDataReader.Services;
 using Rustic.TabularDataReader.Services;
 using SimpleInjector;
 
-namespace Rustic.TabularDataReader;
+namespace Kerajel.TabularDataReader;
 
 internal static class InternalContainer
 {

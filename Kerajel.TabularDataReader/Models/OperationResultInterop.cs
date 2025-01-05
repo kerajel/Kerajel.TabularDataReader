@@ -1,12 +1,12 @@
-﻿using Rustic.TabularDataReader.Enums;
+﻿using Kerajel.TabularDataReader.Enums;
 using System.Runtime.InteropServices;
 
-namespace Rustic.TabularDataReader.Models;
+namespace Kerajel.TabularDataReader.Models;
 
 [StructLayout(LayoutKind.Sequential)]
 internal struct OperationResultInterop
 {
-    public nint Result; 
+    public nint Result;
     public OperationStatus OperationStatus;
     public nint ErrorMessage;
 }

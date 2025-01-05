@@ -1,4 +1,4 @@
-﻿namespace Rustic.TabularDataReader.Enums;
+﻿namespace Kerajel.TabularDataReader.Enums;
 
 public enum OperationStatus
 {

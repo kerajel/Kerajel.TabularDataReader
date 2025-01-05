@@ -1,13 +1,15 @@
 ﻿using FluentAssertions;
-using Rustic.TabularDataReader.Enums;
-using Rustic.TabularDataReader.Interfaces;
-using Rustic.TabularDataReader.Models;
+using Kerajel.TabularDataReader.Enums;
+using Kerajel.TabularDataReader.Interfaces;
+using Kerajel.TabularDataReader.Models;
 
-namespace Rustic.TabularDataReader.Tests;
+namespace Kerajel.TabularDataReader.Tests;
 
 public class SpreadsheetReaderTests
 {
     readonly ISpreadsheetReader _sut = InternalContainer.GetInstance<ISpreadsheetReader>();
+
+    readonly string[] _newLineSeparators = ["\n", "\r\n"];
 
     [Fact]
     public void Read_ShouldReturnExpectedContent()
@@ -26,10 +28,11 @@ public class SpreadsheetReaderTests
 2,Cucumber,Green
 3,Carrot,Orange
 4,Bell Pepper,Yellow
-5,Broccoli,Green";
+5,Broccoli,Green
+";
 
-        string[] expectedLines = expectedContent.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-        string[] resultLines = result.Content.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+        string[] expectedLines = expectedContent.Split(_newLineSeparators, StringSplitOptions.RemoveEmptyEntries);
+        string[] resultLines = result.Content.Split(_newLineSeparators, StringSplitOptions.RemoveEmptyEntries);
 
         resultLines.Should().BeEquivalentTo(expectedLines);
         result.OperationStatus.Should().Be(OperationStatus.Succeeded);

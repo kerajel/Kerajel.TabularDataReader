@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rustic.TabularDataReader\Rustic.TabularDataReader.csproj" />
+    <ProjectReference Include="..\Kerajel.TabularDataReader\Kerajel.TabularDataReader.csproj" />
   </ItemGroup>
 
   <ItemGroup>

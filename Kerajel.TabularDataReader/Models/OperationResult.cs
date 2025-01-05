@@ -1,6 +1,6 @@
-﻿using Rustic.TabularDataReader.Enums;
+﻿using Kerajel.TabularDataReader.Enums;
 
-namespace Rustic.TabularDataReader.Models;
+namespace Kerajel.TabularDataReader.Models;
 
 public class OperationResult<T>
 {
