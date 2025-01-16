@@ -1,7 +1,7 @@
-﻿using FluentAssertions;
-using Kerajel.TabularDataReader.Enums;
+﻿using Kerajel.TabularDataReader.Enums;
 using Kerajel.TabularDataReader.Interfaces;
 using Kerajel.TabularDataReader.Models;
+using Shouldly;
 
 namespace Kerajel.TabularDataReader.Tests;
 
@@ -34,7 +34,7 @@ public class SpreadsheetReaderTests
         string[] expectedLines = expectedContent.Split(_newLineSeparators, StringSplitOptions.RemoveEmptyEntries);
         string[] resultLines = result.Content.Split(_newLineSeparators, StringSplitOptions.RemoveEmptyEntries);
 
-        resultLines.Should().BeEquivalentTo(expectedLines);
-        result.OperationStatus.Should().Be(OperationStatus.Succeeded);
+        resultLines.ShouldBeEquivalentTo(expectedLines);
+        result.OperationStatus.ShouldBe(OperationStatus.Succeeded);
     }
 }

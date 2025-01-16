@@ -1,7 +1,7 @@
-﻿using FluentAssertions;
-using Kerajel.TabularDataReader.Enums;
+﻿using Kerajel.TabularDataReader.Enums;
 using Kerajel.TabularDataReader.Interfaces;
 using Kerajel.TabularDataReader.Models;
+using Shouldly;
 
 namespace Kerajel.TabularDataReader.Tests;
 
@@ -28,7 +28,7 @@ public class CsvReaderTests
 4|Lisa|White|lisa.white@example.com|2021-04-30
 5|Mark|Black|mark.black@example.com|2021-05-16";
 
-        result.Content.Should().Be(expectedContent);
-        result.OperationStatus.Should().Be(OperationStatus.Succeeded);
+        result.Content.ShouldBe(expectedContent);
+        result.OperationStatus.ShouldBe(OperationStatus.Succeeded);
     }
 }
