@@ -1,6 +1,6 @@
-﻿using Kerajel.TabularDataReader.Enums;
+﻿using Kerajel.Primitives.Enums;
+using Kerajel.Primitives.Models;
 using Kerajel.TabularDataReader.Interfaces;
-using Kerajel.TabularDataReader.Models;
 using System.Text;
 
 namespace Kerajel.TabularDataReader.Services;

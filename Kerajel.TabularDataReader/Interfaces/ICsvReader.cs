@@ -1,4 +1,4 @@
-﻿using Kerajel.TabularDataReader.Models;
+﻿using Kerajel.Primitives.Models;
 
 namespace Kerajel.TabularDataReader.Interfaces;
 

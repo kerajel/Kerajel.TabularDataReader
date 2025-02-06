@@ -1,7 +1,7 @@
-﻿using Kerajel.TabularDataReader.Enums;
+﻿using Kerajel.Primitives.Enums;
+using Kerajel.Primitives.Models;
 using Kerajel.TabularDataReader.Handlers;
 using Kerajel.TabularDataReader.Interfaces;
-using Kerajel.TabularDataReader.Models;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -14,6 +14,10 @@ internal partial class SpreadsheetReader : ISpreadsheetReader
     [LibraryImport(DllName, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial OperationResultInterop excel_to_csv(byte[] bytes, ulong len, string? sheetName = null);
+
+    [LibraryImport(DllName, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial OperationResultInterop excel_to_csv_by_path(string filePath, string? sheetName = null);
 
     [LibraryImport(DllName)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -29,6 +33,13 @@ internal partial class SpreadsheetReader : ISpreadsheetReader
     public OperationResult<string> Read(byte[] byteArray, string? sheetName = null)
     {
         OperationResultInterop interopResult = excel_to_csv(byteArray, (ulong)byteArray.Length, sheetName);
+        using InteropResourceHandler<OperationResultInterop> handler = new(interopResult, free_operation_result);
+        return MarshalInteropResult(handler.Resource);
+    }
+
+    public OperationResult<string> Read(string filePath, string? sheetName = null)
+    {
+        OperationResultInterop interopResult = excel_to_csv_by_path(filePath, sheetName);
         using InteropResourceHandler<OperationResultInterop> handler = new(interopResult, free_operation_result);
         return MarshalInteropResult(handler.Resource);
     }

@@ -12,10 +12,10 @@ public class SpreadsheetReaderTests
     readonly string[] _newLineSeparators = ["\n", "\r\n"];
 
     [Fact]
-    public void Read_ShouldReturnExpectedContent()
+    public void Read_ShouldReturnExpectedContentFromBytes()
     {
         // Arrange
-        string fileName = "TestData/Xlsx_Test1.xlsx";
+        string fileName = @"C:\Users\user\Desktop\RadzenUpload\New Microsoft Excel Worksheet.xlsx";
         byte[] bytes = File.ReadAllBytes(fileName);
 
         // Act
@@ -37,4 +37,31 @@ public class SpreadsheetReaderTests
         resultLines.ShouldBeEquivalentTo(expectedLines);
         result.OperationStatus.ShouldBe(OperationStatus.Succeeded);
     }
+
+    [Fact]
+    public void Read_ShouldReturnExpectedContentFromFilePath()
+    {
+        // Arrange
+        string fileName = @"C:\Users\user\Desktop\RadzenUpload\New Microsoft Excel Worksheet.xlsx";
+
+        // Act
+        OperationResult<string> result = _sut.Read(fileName);
+
+        // Assert
+        string expectedContent =
+@"ID,VegetableName,Color
+1,Tomato,Red
+2,Cucumber,Green
+3,Carrot,Orange
+4,Bell Pepper,Yellow
+5,Broccoli,Green
+";
+
+        //string[] expectedLines = expectedContent.Split(_newLineSeparators, StringSplitOptions.RemoveEmptyEntries);
+        //string[] resultLines = result.Content.Split(_newLineSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+        //resultLines.ShouldBeEquivalentTo(expectedLines);
+        result.OperationStatus.ShouldBe(OperationStatus.Succeeded);
+    }
+
 }
