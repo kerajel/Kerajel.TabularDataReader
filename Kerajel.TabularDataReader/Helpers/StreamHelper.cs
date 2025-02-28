@@ -2,9 +2,10 @@
 
 public static class StreamHelper
 {
-    public static async Task<byte[]> ReadToByteArrayAsync(this Stream stream)
+    public static async Task<byte[]> ReadToByteArrayAsync(this Stream stream, CancellationToken ct = default)
     {
         ArgumentNullException.ThrowIfNull(stream);
+        ct.ThrowIfCancellationRequested();
 
         if (stream.CanSeek)
         {
@@ -20,30 +21,29 @@ public static class StreamHelper
             }
 
             byte[] buffer = new byte[length];
-            await ReadExactlyAsync(stream, buffer);
+            await ReadExactlyAsync(stream, buffer, ct);
             return buffer;
         }
         else
         {
-            using MemoryStream memoryStream = new();
-            await stream.CopyToAsync(memoryStream);
+            using MemoryStream memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream, ct);
             return memoryStream.ToArray();
         }
     }
 
-    private static async Task ReadExactlyAsync(Stream stream, byte[] buffer)
+    private static async Task ReadExactlyAsync(Stream stream, byte[] buffer, CancellationToken ct = default)
     {
         int offset = 0;
-        int remaining = buffer.Length;
-        while (remaining > 0)
+        while (offset < buffer.Length)
         {
-            int bytesRead = await stream.ReadAsync(buffer.AsMemory(offset, remaining));
+            int bytesRead = await stream.ReadAsync(buffer.AsMemory(offset, buffer.Length - offset), ct);
             if (bytesRead == 0)
             {
-                throw new EndOfStreamException("Reached the end of the stream before reading the required number of bytes.");
+                throw new EndOfStreamException("Could not read the complete stream.");
             }
             offset += bytesRead;
-            remaining -= bytesRead;
+            ct.ThrowIfCancellationRequested();
         }
     }
 }
