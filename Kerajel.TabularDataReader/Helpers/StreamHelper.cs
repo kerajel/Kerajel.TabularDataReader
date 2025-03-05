@@ -26,7 +26,7 @@ public static class StreamHelper
         }
         else
         {
-            using MemoryStream memoryStream = new MemoryStream();
+            using MemoryStream memoryStream = new();
             await stream.CopyToAsync(memoryStream, ct);
             return memoryStream.ToArray();
         }
