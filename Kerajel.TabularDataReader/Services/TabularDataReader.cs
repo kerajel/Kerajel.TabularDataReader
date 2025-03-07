@@ -13,22 +13,22 @@ public static class TabularDataReader
 
         byte[] buffer = await stream.ReadToByteArrayAsync();
 
-        return ReadFromBytes(buffer, extension, sheetName);
+        return await ReadFromBytes(buffer, extension, sheetName);
     }
 
-    public static OperationResult<string> Read(byte[] bytea, string fileName, string? sheetName = null)
+    public static async Task<OperationResult<string>> Read(byte[] bytea, string fileName, string? sheetName = null)
     {
         string extension = Path.GetExtension(fileName);
 
-        return ReadFromBytes(bytea, extension, sheetName);
+        return await ReadFromBytes(bytea, extension, sheetName);
     }
 
-    public static OperationResult<string> Read(string filePath, string? sheetName = null)
+    public static async Task<OperationResult<string>> Read(string filePath, string? sheetName = null)
     {
-        return ReadFromFilePath(filePath, sheetName);
+        return await ReadFromFilePath(filePath, sheetName);
     }
 
-    private static OperationResult<string> ReadFromBytes(byte[] bytea, string extension, string? sheetName = null)
+    private static async Task<OperationResult<string>> ReadFromBytes(byte[] bytea, string extension, string? sheetName = null)
     {
         ISpreadsheetReader spreadsheetReader = InternalContainer.GetInstance<ISpreadsheetReader>();
 
@@ -41,7 +41,7 @@ public static class TabularDataReader
 
         if (csvReader.CanHandle(extension))
         {
-            return csvReader.Read(bytea);
+            return await csvReader.Read(bytea);
         }
 
         return new OperationResult<string>
@@ -51,7 +51,7 @@ public static class TabularDataReader
         };
     }
 
-    private static OperationResult<string> ReadFromFilePath(string filePath, string? sheetName = null)
+    private static async Task<OperationResult<string>> ReadFromFilePath(string filePath, string? sheetName = null)
     {
         ISpreadsheetReader spreadsheetReader = InternalContainer.GetInstance<ISpreadsheetReader>();
 
@@ -66,7 +66,7 @@ public static class TabularDataReader
 
         if (csvReader.CanHandle(extension))
         {
-            //return csvReader.Read(filePath);
+            return await csvReader.Read(filePath);
         }
 
         return new OperationResult<string>

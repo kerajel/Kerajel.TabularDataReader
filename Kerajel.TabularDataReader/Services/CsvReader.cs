@@ -14,12 +14,28 @@ internal class CsvReader : ICsvReader
         return _supportedExtensions.Contains(extension);
     }
 
-    public OperationResult<string> Read(byte[] bytea)
+    public Task<OperationResult<string>> Read(byte[] bytea)
     {
         OperationResult<string> result = new();
         try
         {
             result.Content = Encoding.UTF8.GetString(bytea);
+            result.OperationStatus = OperationStatus.Succeeded;
+        }
+        catch (Exception ex)
+        {
+            result.ErrorMessage = ex.Message;
+            result.OperationStatus = OperationStatus.Faulted;
+        }
+        return Task.FromResult(result);
+    }
+
+    public async Task<OperationResult<string>> Read(string filePath)
+    {
+        OperationResult<string> result = new();
+        try
+        {
+            result.Content = await File.ReadAllTextAsync(filePath);
             result.OperationStatus = OperationStatus.Succeeded;
         }
         catch (Exception ex)
