@@ -1,6 +1,6 @@
 # Kerajel.TabularDataReader
 
-Kerajel.TabularDataReader is a C# wrapper that simplifies access to a native library for converting spreadsheets (XLS, XLSX, etc.) to CSV format. It leverages the native library ([Kerajel.TabularDataReader.Native](https://github.com/kerajel/TabularDataReader.Native)) and [Kerajel.Primitives](https://github.com/kerajel/Primitives) for robust result handling via the `OperationResult` model.
+Kerajel.TabularDataReader is a C# wrapper that simplifies access to a native library for converting spreadsheets (XLS, XLSX, etc.) to CSV format. It leverages the native library ([Kerajel.TabularDataReader.Native](https://github.com/kerajel/Kerajel.TabularDataReader.Native)) and [Kerajel.Primitives](https://github.com/kerajel/Kerajel.Primitives) for robust result handling via the `OperationResult` model.
 
 ## Features
 - **Versatile Input:** Supports both file paths and raw byte arrays.
