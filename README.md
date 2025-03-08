@@ -34,5 +34,8 @@ Kerajel.TabularDataReader is a C# wrapper that simplifies access to a native lib
         Console.WriteLine("Error: " + result.ErrorMessage);
     }
 
+## Note
+**Warning:** The current version of Kerajel.TabularDataReader is supported only on Windows.
+
 ## License
 MIT Licensed.
