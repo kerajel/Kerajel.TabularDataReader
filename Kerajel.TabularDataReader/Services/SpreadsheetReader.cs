@@ -5,7 +5,7 @@ using Kerajel.TabularDataReader.Interfaces;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace Rustic.TabularDataReader.Services;
+namespace Kerajel.TabularDataReader.Services;
 
 internal partial class SpreadsheetReader : ISpreadsheetReader
 {

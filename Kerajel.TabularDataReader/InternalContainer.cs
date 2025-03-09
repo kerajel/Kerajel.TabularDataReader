@@ -1,6 +1,6 @@
 ﻿using Kerajel.TabularDataReader.Interfaces;
 using Kerajel.TabularDataReader.Services;
-using Rustic.TabularDataReader.Services;
+using Kerajel.TabularDataReader.Services;
 using SimpleInjector;
 
 namespace Kerajel.TabularDataReader;
