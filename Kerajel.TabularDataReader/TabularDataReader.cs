@@ -121,7 +121,7 @@ public class TabularDataReader : IDisposable
             {
                 if (_writerTask != null)
                 {
-                    _writerTask.Wait();
+                    _writerTask.Wait(TimeSpan.FromSeconds(30));
                 }
             }
             catch
