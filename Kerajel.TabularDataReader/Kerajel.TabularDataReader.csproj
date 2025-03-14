@@ -11,22 +11,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="lib\kerajel_tabular_data_reader.dll" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="lib\kerajel_tabular_data_reader.dll">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CsvHelper" Version="33.0.1" />
+		<PackageReference Include="ExcelDataReader" Version="3.7.0" />
+		<PackageReference Include="ExcelDataReader.DataSet" Version="3.7.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
+		<PackageReference Include="Shouldly" Version="4.3.0" />
 		<PackageReference Include="SimpleInjector" Version="5.5.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\source\repos\NuclearEvaluation\NuclearEvaluation.Kernel\NuclearEvaluation.Kernel.csproj" />
 		<ProjectReference Include="..\..\Kerajel.Primitives\Kerajel.Primitives\Kerajel.Primitives\Kerajel.Primitives.csproj" />
 	</ItemGroup>
 
