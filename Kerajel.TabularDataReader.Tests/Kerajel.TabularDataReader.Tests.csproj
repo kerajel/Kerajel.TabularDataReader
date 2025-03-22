@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\Kerajel.TabularDataReader\Kerajel.TabularDataReader\Kerajel.TabularDataReader.csproj" />
     <ProjectReference Include="..\..\Kerajel.TabularDataReader\Kerajel.TabularDataReader\Kerajel.TabularDataReader.csproj" />
   </ItemGroup>
 
