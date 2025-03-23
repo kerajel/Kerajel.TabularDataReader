@@ -3,7 +3,7 @@ using Kerajel.TabularDataReader.Tests.Mappings;
 using Kerajel.TabularDataReader.Tests.Models;
 using Shouldly;
 
-namespace Kerajel.TabularDataReader.Tests;
+namespace Kerajel.TabularDataReader.Tests.Tests;
 
 public partial class TabularDataReaderTests
 {
